@@ -3,6 +3,8 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
+let x = 1;
+  console.log("App has been executed") // This is how you can log to the debugger
   return (
     <View style={styles.container}>
       <Text>This will be the page the app will open on. I just needed to get it up and running.</Text>
