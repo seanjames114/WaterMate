@@ -1,5 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet, Dimensions, Text, View, Image, ImageBackground, TouchableWithoutFeedback, Alert, TouchableHighlight, SafeAreaView, Button,
           Platform,
           PlatformColor,
@@ -8,12 +10,10 @@ import Home from './pages/HomePage'
 /*below is the image of the running girl that will be used for out background */        
 const runningGirlImage = {uri: "https://static.wixstatic.com/media/51ae2e_30e94e2d151e4dad911f38da3272b0d1~mv2.jpg/v1/fit/w_924,h_520/51ae2e_30e94e2d151e4dad911f38da3272b0d1~mv2.jpg"}
 
-
-export default function App() {
+function LoginScreen({navigation}) {
   const [text, onChangeText] = React.useState(null);
-  return (
-    //This is the center of screen portion 
-    <SafeAreaView style={styles.container}> 
+  return(
+  <SafeAreaView style={styles.container}> 
       <ImageBackground source={runningGirlImage} resizeMode="cover" style={styles.ImageB}>
        <View style={{
           flex: 1, 
@@ -36,7 +36,7 @@ export default function App() {
             placeholder="Password"
           />
           <Button
-            onPress={() => {    alert('You tapped the login button but I know you dont have an account asshole!');  }}
+            onPress={() => navigation.navigate('Home')}
             title="Login"
           />
           <Button
@@ -48,6 +48,26 @@ export default function App() {
         </View>   
        </ImageBackground>
     </SafeAreaView>
+  );
+}
+function HomeScreen() {
+  return(
+    <View>
+      <Text>SUP PUSSY BOI</Text>
+    </View>
+  );
+}
+
+const Stack = createNativeStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>    
   );
 }
 
