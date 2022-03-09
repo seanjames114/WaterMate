@@ -8,20 +8,23 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@react-navigation/native": "^6.0.6",
-    "@react-navigation/native-stack": "^6.2.5",
-    "@react-navigation/stack": "^6.0.11",
-    "expo": "~42.0.1",
+    "@react-navigation/native": "^6.0.8",
+    "@react-navigation/native-stack": "^6.5.0",
+    "@react-navigation/stack": "^6.1.1",
+    "expo": "^42.0.5",
     "expo-status-bar": "~1.0.4",
-    "react": "16.13.1",
-    "react-dom": "^16.13.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
+    "native": "^0.3.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-native": "^0.63.4",
+    "react-native-gesture-handler": "^2.3.0",
     "react-native-safe-area-context": "3.2.0",
     "react-native-screens": "~3.4.0",
-    "react-native-web": "^0.17.5"
+    "react-native-web": "^0.17.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0"
+    "@babel/core": "^7.17.5",
+    "babel-plugin-module-resolver": "^4.1.0"
   },
   "private": true
 }

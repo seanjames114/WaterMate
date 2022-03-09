@@ -8,9 +8,14 @@ import { TouchableOpacity } from 'react-native-web';
 import HomePageNavButton from './HomePageNavButton'
 
 function HomeScreen() {
-  const waterImage = {uri: 'https://www.wbcsd.org/var/site/storage/images/media/page-assets/program-areas/water/water-overview/60619-4-eng-GB/Water-Overview_i1140.jpg'}
-  const [waterIntake, setWaterIntake] = React.useState('0 oz')
-  const [waterRemaining, setWaterRemaining] = React.useState('144 oz')
+  const waterImage = {uri: 'https://wallpapercave.com/wp/wp3149462.png'}
+  const [waterIntake, setWaterIntake] = React.useState(0)
+  const [waterRemaining, setWaterRemaining] = React.useState(0)
+
+  calcRemWater = ()=>
+  {
+    setWaterRemaining = waterRemaining - waterIntake;
+  }
 
   const [navbuttons, setnavButtons] = React.useState([
     {text: 'Profile', 
@@ -36,13 +41,13 @@ function HomeScreen() {
         {/*These are the quick stats*/}
         <View style={{ justifyContent: 'center', flexDirection: 'row', flex: 1}}>
           <View style={styles.item}>
-            <Text style={{textAlign: 'center', fontWeight: 'bold'}}>Current Water Consumption: {waterIntake}</Text> 
-            <Text style={{textAlign: 'center', fontWeight: 'bold'}}>Remaing Amount: {waterRemaining}</Text>
+            <Text style={{textAlign: 'center', fontWeight: 'bold'}}>Current Water Consumption: {waterIntake} oz</Text> 
+            <Text style={{textAlign: 'center', fontWeight: 'bold'}}>Remaing Amount: {waterRemaining} oz</Text>
             <Text style={{textAlign: 'center', fontWeight: 'bold'}}>Current Streak: 3 Days</Text> 
           </View>
         </View>
         {/*BELOW IS THE CONTENT LIST MENU */}
-        <View style={{ justifyContent: 'center', alignItems: 'flext-start', flexDirection: 'row', flex: 4}}>
+        <View style={{paddingTop: 10, justifyContent: 'center', alignItems: 'flext-start', flexDirection: 'row', flex: 4}}>
           <FlatList
             data = {navbuttons}
             renderItem={({item}) => ( 
@@ -50,6 +55,9 @@ function HomeScreen() {
             )}
           />
           
+        </View>
+        <View>
+          <Button title='test' onPress={this.calcRemWater} />
         </View>
       </ImageBackground>
     </SafeAreaView>
@@ -81,8 +89,9 @@ const styles = StyleSheet.create({
   },
   title:{
     fontWeight: '700',
-    fontSize: 30,
-    textAlign: 'center'
+    fontSize: 45,
+    textAlign: 'center',
+    color: 'rgb(128,128,128)'
   },
   ImageB:{
     flex: 1,
